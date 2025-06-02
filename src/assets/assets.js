@@ -1,0 +1,16 @@
+export const assets = {
+    gluu_logo: '/gluu-logo.png',
+    hero_background: '/hero-background.png',
+    how_it_works_step_1: '/how-it-works-step-1.png',
+    how_it_works_step_2: '/how-it-works-step-2.png',
+    how_it_works_step_3: '/how-it-works-step-3.png',
+    robot_icon: '/robot-icon.png',
+    lock_icon: '/lock-icon.png',
+    wallet_icon: '/wallet-icon.png',
+    fast_forward_icon: '/fast-forward-icon.png',
+    lightning_icon: '/lightning-icon.png',
+    collection_icon: '/collection-icon.png',
+    gradient_background: '/gradient-background.png',
+    chatbot_icon: '/chatbot-icon.png',
+    gluu_bot_icon: '/gluu-bot-icon.png',
+}
