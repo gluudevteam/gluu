@@ -11,6 +11,12 @@ export const assets = {
     lightning_icon: '/lightning-icon.png',
     collection_icon: '/collection-icon.png',
     gradient_background: '/gradient-background.png',
+    gradient_background_2: '/gradient-background-2.png',
     chatbot_icon: '/chatbot-icon.png',
     gluu_bot_icon: '/gluu-bot-icon.png',
+    dify_icon: '/dify-icon.png',
+    open_ai_icon: '/open-ai-icon.png',
+    stripe_icon: '/stripe-icon.png',
+    vercel_icon: '/vercel-icon.png',
+    supabase_icon: '/supabase-icon.png',
 }
