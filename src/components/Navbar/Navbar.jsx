@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="w-full bg-[#18161F] py-4 px-6 md:px-16 lg:px-60 flex items-center justify-between relative">
             {/* logo */}
             <div className="flex items-center">
-                <img src={assets.gluu_logo} alt="Gluu Logo" className="h-10" />
+                <Link to='/'><img src={assets.gluu_logo} alt="Gluu Logo" className="h-10" /></Link>
             </div>
             {/* desktop navigation links */}
             <div className="hidden md:flex items-center space-x-6">
@@ -20,7 +20,7 @@ const Navbar = () => {
             </div>
             {/* desktop sign up button */}
             <div className="hidden md:block">
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-semibold text-sm px-8 py-3 rounded-lg shadow hover:opacity-90 transition">
+                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-normal text-sm px-8 py-3 rounded-lg shadow hover:opacity-90 transition cursor-pointer">
                     <Link to='/signup'>Sign Up Free</Link>
                 </button>
             </div>

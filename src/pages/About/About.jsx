@@ -22,7 +22,7 @@ const About = () => {
                 backgroundImage={assets.hero_background}
             >
                 <div className="flex gap-4 justify-center mt-8">
-                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-semibold rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
+                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
                         Get Started Free
                     </button>
                 </div>
@@ -40,7 +40,7 @@ const About = () => {
                 title="Open Your AI Wallet for Valuables — Free!"
                 subtitle="Join collectors and owners who use Gluu to organize, document and discover the value of what they own."
             >
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-semibold rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
+                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
                     Get Started Free
                 </button>
             </FooterPromotion>

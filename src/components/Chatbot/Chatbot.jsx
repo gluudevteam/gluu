@@ -9,11 +9,11 @@ const Chatbot = () => {
             {/* Floating button */}
             {!isOpen && (
                 <button
-                    className="fixed bottom-8 right-8 z-50 shadow-lg rounded-full bg-gradient-to-br from-[#A084FF] to-[#6F4FFF] w-16 h-16 flex items-center justify-center"
+                    className="fixed bottom-8 right-8 z-50 shadow-lg rounded-full bg-gradient-to-br from-[#A084FF] to-[#6F4FFF] w-16 h-16 flex items-center justify-center cursor-pointer"
                     onClick={() => setIsOpen(true)}
                     aria-label="Open chat"
                 >
-                    <img src={assets.chatbot_icon} alt="Chatbot" className="w-8 h-8 cursor-pointer" />
+                    <img src={assets.chatbot_icon} alt="Chatbot" className="w-8 h-8" />
                 </button>
             )}
 

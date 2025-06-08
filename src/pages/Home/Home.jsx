@@ -4,6 +4,7 @@ import { assets } from '../../assets/assets'
 import HowItWorks from '../../components/HowItWorks/HowItWorks'
 import WhyChooseGluu from '../../components/WhyChooseGluu/WhyChooseGluu'
 import Promotion from '../../components/Promotion/Promotion'
+import { Link } from 'react-router-dom'
 
 
 const Home = () => {
@@ -20,11 +21,11 @@ const Home = () => {
                 backgroundImage={assets.hero_background}
             >
                 <div className="flex gap-4 justify-center mt-8">
-                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-semibold rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
-                        Get Started Free
+                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
+                        <Link to='/signup'>Get Started Free</Link>
                     </button>
-                    <button className="bg-[#39373D] text-white font-semibold rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
-                        Learn More
+                    <button className="bg-[#39373D] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
+                        <Link to='/about'>Learn More</Link>
                     </button>
                 </div>
             </Hero>
@@ -37,7 +38,7 @@ const Home = () => {
                 title="Ready to Start Your Digital Inventory?"
                 subtitle="Join Gluu today and unlock the first step towards understanding and managing your valuable assets."
             >
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-semibold rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
+                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
                     Get Started Free
                 </button>
             </Promotion>
