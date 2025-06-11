@@ -10,16 +10,35 @@ const Chatbot = () => {
     ])
     const [input, setInput] = useState("")
     const [loading, setLoading] = useState(false)
+    const [suggestions, setSuggestions] = useState([])
     const inputRef = useRef(null)
 
-    const sendMessage = async (e) => {
-        e.preventDefault();
-        if (!input.trim()) return;
-        const userMsg = { role: 'user', content: input };
+    const fetchSuggestions = async (messageId) => {
+        if (!messageId) return;
+        try {
+            const res = await fetch(`https://api.dify.ai/v1/messages/${messageId}/suggested?user=gluu-test-user`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${DIFy_API_KEY}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+            const data = await res.json();
+            setSuggestions(data.suggested_questions || []);
+        } catch (err) {
+            setSuggestions([]);
+        }
+    };
+
+    const sendMessage = async (e, customInput) => {
+        if (e) e.preventDefault();
+        const messageText = customInput !== undefined ? customInput : input;
+        if (!messageText.trim()) return;
+        const userMsg = { role: 'user', content: messageText };
         setMessages(prev => [...prev, userMsg]);
         setInput("");
         setLoading(true);
-
+        setSuggestions([]);
         try {
             const res = await fetch(DIFy_API_URL, {
                 method: 'POST',
@@ -29,22 +48,20 @@ const Chatbot = () => {
                 },
                 body: JSON.stringify({
                     inputs: {},
-                    query: input,
+                    query: messageText,
                     response_mode: 'blocking',
-                    user: 'gluu-test-user' // 🔧 required!
+                    user: 'gluu-test-user' 
                 })
             });
-
             const data = await res.json();
-            console.log('Dify response:', data);
-
+            console.log('Dify sendMessage response:', data);
             const botMsg = {
                 role: 'assistant',
                 content: data.answer || 'Sorry, I could not get a response.'
             };
             setMessages(prev => [...prev, botMsg]);
+            fetchSuggestions(data.id || data.message_id);
         } catch (err) {
-            console.error(err);
             setMessages(prev => [...prev, { role: 'assistant', content: 'Error connecting to GluuBot.' }]);
         } finally {
             setLoading(false);
@@ -53,6 +70,7 @@ const Chatbot = () => {
 
     const fetchWelcomeMessage = async () => {
         setLoading(true);
+        setSuggestions([]);
         try {
             const res = await fetch(DIFy_API_URL, {
                 method: 'POST',
@@ -62,21 +80,19 @@ const Chatbot = () => {
                 },
                 body: JSON.stringify({
                     inputs: {},
-                    query: 'Hello', // ✅ Send a default trigger query
+                    query: '',
                     response_mode: 'blocking',
                     user: 'gluu-test-user'
                 })
             });
-
             const data = await res.json();
-            console.log("Welcome Message:", data);
-
+            console.log('Dify welcome response:', data);
             setMessages([{
                 role: 'assistant',
-                content: data.answer || 'Hello! How can I help you today?'
+                content: data.answer || "Hi there! I'm your Gluu Agent. I can help you with questions about using Gluu V0.5 to document your valuable assets with AI insights. What can I help you with today?"
             }]);
+            fetchSuggestions(data.id || data.message_id);
         } catch (err) {
-            console.error(err);
             setMessages([{
                 role: 'assistant',
                 content: 'Error loading welcome message.'
@@ -142,6 +158,21 @@ const Chatbot = () => {
                             <div className="flex items-start gap-2">
                                 <img src={assets.gluu_bot_icon} alt="GluuBot" className="mt-1" />
                                 <div className="bg-[#F3EBFF] text-black px-4 py-2 rounded-lg text-sm animate-pulse">GluuBot is typing...</div>
+                            </div>
+                        )}
+                        {/* Suggestions */}
+                        {suggestions.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                {suggestions.map((s, i) => (
+                                    <button
+                                        key={i}
+                                        className="bg-[#E0D7F7] hover:bg-[#A084FF] hover:text-white text-[#5E38BD] px-3 py-1 rounded-lg text-xs transition"
+                                        onClick={() => sendMessage(null, s)}
+                                        disabled={loading}
+                                    >
+                                        {s}
+                                    </button>
+                                ))}
                             </div>
                         )}
                     </div>
