@@ -5,24 +5,25 @@ const steps = [
     {
         icon: assets.how_it_works_step_1,
         title: "1. Document Your Assets",
-        description: "Securely upload details and images of your items into your personal Gluu Wallet. Our AI assists in identifying and categorizing your valuables."
+        description: "Securely upload details and images of your items into your personal Gluu Portfolio. The platform assists in identifying and categorizing your valuables."
     },
     {
         icon: assets.how_it_works_step_2,
         title: "2. Get AI-Powered Insights",
-        description: "Leverage our AI for approximate value suggestions based on item details and market data. Understand your collection's potential worth."
+        description: "Leverage the platform for approximate value suggestions based on item details and market data. Understand your collection's potential worth."
     },
     {
         icon: assets.how_it_works_step_3,
         title: "3. Build Your Digital Inventory",
-        description: (
-            <>
-                Create a comprehensive record of your Real World Asset (RWAs). Your Gluu Wallet is the first step towards organizing your assets and unlocking their future potential.{" "}
-                <span className="text-[#5E38BD] font-bold">
-                    (Future versions will explore transaction capabilities!)
-                </span>
-            </>
-        )
+        // description: (
+        //     <>
+        //         Create a comprehensive record of your Real World Asset (RWAs). Your Gluu Wallet is the first step towards organizing your assets and unlocking their future potential.{" "}
+        //         <span className="text-[#5E38BD] font-bold">
+        //             (Future versions will explore transaction capabilities!)
+        //         </span>
+        //     </>
+        // )
+        description: "Create a comprehensive record of your Real World Assets (RWAs). Your Gluu Portfolio is the first step towards organizing your assets and unlocking their future potential."
     },
 ]
 

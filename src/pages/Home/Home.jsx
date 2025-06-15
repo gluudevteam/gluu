@@ -13,11 +13,11 @@ const Home = () => {
             <Hero
                 title={
                     <>
-                        Your AI-Powered Wallet for <br />
+                        The Smart Portfolio for Your <br />
                         Real World Assets
                     </>
                 }
-                subtitle="Gluu V0.5 helps you effortlessly create a digital inventory of your valuable possessions. Our AI assists with identification and provides approximate value suggestions, laying the foundation for future possibilities."
+                subtitle="Gluu V0.5 helps you effortlessly create a digital inventory of your valuable possessions. The platform assists with identification and provides approximate value suggestions, laying the foundation for future possibilities."
                 backgroundImage={assets.hero_background}
             >
                 <div className="flex gap-4 justify-center mt-8">

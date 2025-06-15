@@ -4,30 +4,30 @@ import { assets } from '../../assets/assets'
 const steps = [
     {
         icon: assets.robot_icon,
-        title: "AI-Powered Insights",
-        description: "Our AI helps identify your items, suggests approximate values, and (for Client Plus Users) assists with condition reporting."
+        title: "Value-Driven Insights",
+        description: "The platform helps identify your items and suggests approximate values."
     },
     {
         icon: assets.lock_icon,
         title: "Secure & Transparent",
-        description: "Your data and valuables are protected by robust encryption and transparent processes."
+        description: "Your data is encrypted and protected. Only you can access your digital asset portfolio."
     },
     {
         icon: assets.wallet_icon,
-        title: "Your Smart Item Wallet",
-        description: "A secure, digital home for all your valuable items. Track what you own, all in one place, with easy AI assistance."
+        title: "Your Smart Item Portfolio",
+        description: "A secure, digital home for all your valuable items. Track what you own, all in one place, with assistance."
     },
     {
         icon: assets.fast_forward_icon,
         title: "Start Free, Grow With Us",
-        description: "Begin with our free Client tier to document up to 10 items. As your collection or needs grow, Client Plus offers more capacity and advanced AI features. Gluu V0.5 is just the beginning."
+        description: "Begin with our free Client tier to document up to 10 items. As your collection or needs grow, Client Plus offers more capacity and advanced features. Gluu V0.5 is just the beginning."
     },
     {
         icon: assets.lightning_icon,
         title: "Effortless Documentation",
         description: (
             <>
-                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Speed up item entry with AI-powered uploads.
+                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Speed up item entry with assisted uploads for faster, easier documentation.
             </>
         )
     },
@@ -36,7 +36,7 @@ const steps = [
         title: "Organize with Collections",
         description: (
             <>
-                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Group your items into custom collections for better management (e.g. ‘Watch Collection’, ‘Art Pieces’).
+                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Group your items into custom collections for better management (e.g., 'Watch Collection,' 'Art Pieces').
             </>
         )
     },
