@@ -22,7 +22,7 @@ const Home = () => {
             >
                 <div className="flex gap-4 justify-center mt-8">
                     <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
-                        <Link to='/signup'>Get Started Free</Link>
+                        <Link to='/'>Get Started Free</Link>
                     </button>
                     <button className="bg-[#39373D] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
                         <Link to='/about'>Learn More</Link>
