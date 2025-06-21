@@ -13,6 +13,7 @@ export const assets = {
     gradient_background: '/gradient-background.png',
     gradient_background_2: '/gradient-background-2.png',
     gradient_background_3: '/gradient-background-3.png',
+    gradient_background_4: '/gradient-background-4.png',
     chatbot_icon: '/chatbot-icon.png',
     gluu_bot_icon: '/gluu-bot-icon.png',
     dify_icon: '/dify-icon.png',
@@ -28,4 +29,9 @@ export const assets = {
     check_icon: '/check-icon.png',
     jitter_step1_video: '/jitter-step1-video.mp4',
     step1_mockup: '/step1-mockup.png',
+    step2_mockup: '/step2-mockup.png',
+    step3_mockup: '/step3-mockup.png',
+    step4_mockup: '/step4-mockup.png',
+    camera_icon: '/camera-icon.png',
+    google_logo: '/google-logo.png',
 }

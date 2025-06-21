@@ -5,6 +5,7 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks'
 import WhyChooseGluu from '../../components/WhyChooseGluu/WhyChooseGluu'
 import Promotion from '../../components/Promotion/Promotion'
 import { Link } from 'react-router-dom'
+import Newsletter from '../../components/Newsletter/Newsletter'
 
 
 const Home = () => {
@@ -21,9 +22,11 @@ const Home = () => {
                 backgroundImage={assets.hero_background}
             >
                 <div className="flex gap-4 justify-center mt-8">
-                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
-                        <Link to='/'>Get Started Free</Link>
-                    </button>
+                    <Link to='/onboarding-step1'>
+                        <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
+                            Get Started Free
+                        </button>
+                    </Link>
                     <button className="bg-[#39373D] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
                         <Link to='/about'>Learn More</Link>
                     </button>
@@ -33,6 +36,8 @@ const Home = () => {
             <HowItWorks />
 
             <WhyChooseGluu />
+
+            <Newsletter />
 
             <Promotion
                 title="Ready to Start Your Digital Inventory?"
