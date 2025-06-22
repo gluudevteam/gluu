@@ -4,6 +4,7 @@ import { useOnboarding } from '../../context/OnboardingContext';
 import TopBar from '../../components/TopBar/TopBar';
 import { toast } from 'react-hot-toast';
 import { assets } from '../../assets/assets';
+import supabase from '../../helper/SupabaseClient';
 
 const Step3 = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Step3 = () => {
         });
     };
 
-    const handleNext = () => {
+    const handleNext = async () => {
         const { firstName, lastName, phone, email, password } = accountDetails;
         if (
             !firstName.trim() ||
@@ -28,6 +29,27 @@ const Step3 = () => {
             toast.error("Please fill out all fields to continue.");
             return;
         }
+
+        // sign up with supabase auth
+        const { error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                data: {
+                    first_name: firstName,
+                    last_name: lastName,
+                    phone: phone,
+                }
+            }
+        })
+
+        if (error) {
+            toast.error(error.message || "Sign up failed.");
+            return;
+        }
+
+        toast.success("Account created! Please check your email to confirm.")
+
         navigate('/onboarding-ai-loading');
     };
 
@@ -87,6 +109,13 @@ const Step3 = () => {
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 rounded-lg bg-[#232336] text-white placeholder-gray-400 focus:outline-none"
                                 />
+
+                                <button
+                                    onClick={handleNext}
+                                    className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer"
+                                >
+                                    Next
+                                </button>
                             </div>
 
                             <div className="my-4 text-center text-white/70 text-sm">or register with</div>
@@ -115,12 +144,7 @@ const Step3 = () => {
                     >
                         Back
                     </button>
-                    <button
-                        onClick={handleNext}
-                        className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer"
-                    >
-                        Next
-                    </button>
+
                 </div>
             </div>
 

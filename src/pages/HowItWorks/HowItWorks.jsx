@@ -5,6 +5,7 @@ import { assets } from '../../assets/assets'
 import OnboardingInstructions from '../../components/OnboardingInstructions/OnboardingInstructions'
 import StepInstructions from '../../components/OnboardingInstructions/StepInstructions'
 import FooterPromotion from '../../components/FooterPromotion/FooterPromotion'
+import { Link } from 'react-router-dom'
 
 const HowItWorks = () => {
     return (
@@ -15,9 +16,11 @@ const HowItWorks = () => {
                 backgroundImage={assets.hero_background}
             >
                 <div className='flex gap-4 justify-center mt-8'>
-                    <button className='bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer'>
-                        Get Started Free
-                    </button>
+                    <Link to='/onboarding-step1'>
+                        <button className='bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer'>
+                            Get Started Free
+                        </button>
+                    </Link>
                 </div>
             </Hero>
 
@@ -57,8 +60,8 @@ const HowItWorks = () => {
                 step={4}
                 title={
                     <>
-                    Get Your Detailed <br />
-                    Asset Profile
+                        Get Your Detailed <br />
+                        Asset Profile
                     </>
                 }
                 description="Create your account in 4 easy steps now and unlock full access!"
@@ -71,9 +74,11 @@ const HowItWorks = () => {
                 subtitle="At Gluu, our mission is to empower individuals by making it simple to document, understand, and ultimately realize the full potential of their Real World Assets. With V0.5, we're starting with a foundational portfolio, helping you build a clear picture of what you own and its approximate value. "
             >
                 <div className='flex gap-4 justify-center mt-8'>
-                    <button className='bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer'>
-                        Get Started Free
-                    </button>
+                    <Link to='/onboarding-step1'>
+                        <button className='bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer'>
+                            Get Started Free
+                        </button>
+                    </Link>
                 </div>
             </FooterPromotion>
         </div>

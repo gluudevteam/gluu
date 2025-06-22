@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Hero from '../../components/Hero/Hero'
 import PricingPlan from '../../components/PricingPlan/PricingPlan'
 import { assets } from '../../assets/assets'
@@ -88,9 +88,11 @@ const Pricing = () => {
                 title="Ready to Start Your Digital Inventory?"
                 subtitle="At Gluu, our mission is to empower individuals by making it simple to document, understand, and ultimately realize the full potential of their Real World Assets. With V0.5, we're starting with a foundational AI-powered wallet, helping you build a clear picture of what you own and its approximate value. We believe this is the first step towards a more transparent and accessible future for RWA management."
             >
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
-                    Learn More About Gluu
-                </button>
+                <Link to='/onboarding-step1'>
+                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
+                        Learn More About Gluu
+                    </button>
+                </Link>
             </FooterPromotion>
         </div>
     )

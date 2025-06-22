@@ -29,7 +29,8 @@ export const OnboardingProvider = ({ children }) => {
         <OnboardingContext.Provider value={{
             images, setImages,
             itemDetails, setItemDetails,
-            accountDetails, setAccountDetails
+            accountDetails, setAccountDetails,
+            aiInsights, setAiInsights
         }}>
             {children}
         </OnboardingContext.Provider>

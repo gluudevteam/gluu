@@ -34,4 +34,5 @@ export const assets = {
     step4_mockup: '/step4-mockup.png',
     camera_icon: '/camera-icon.png',
     google_logo: '/google-logo.png',
+    default_avatar: '/default-avatar.png',
 }

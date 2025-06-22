@@ -4,39 +4,35 @@ import { assets } from '../../assets/assets'
 const steps = [
     {
         icon: assets.robot_icon,
-        title: "Value-Driven Insights",
-        description: "The platform helps identify your items and suggests approximate values."
+        title: "Delivering Insights",
+        description: "To translate an asset's physical condition into actionable intelligence through a detailed Asset Profile. "
     },
     {
         icon: assets.lock_icon,
         title: "Secure & Transparent",
-        description: "Your data is encrypted and protected. Only you can access your digital asset portfolio."
+        description: "Your data is encrypted and protected. Only you can access your Smart Portfolio and Condition Report."
     },
     {
         icon: assets.wallet_icon,
-        title: "Your Smart Item Portfolio",
-        description: "A secure, digital home for all your valuable items. Track what you own, all in one place, with assistance."
+        title: "Your Smart Asset Portfolio",
+        description: "A secure, digital home for all your valuable items. Track what you own, all in one place, with assistance from your personal Gluu Agent."
     },
     {
         icon: assets.fast_forward_icon,
         title: "Start Free, Grow With Us",
-        description: "Begin with our free Client tier to document up to 10 items. As your collection or needs grow, Client Plus offers more capacity and advanced features. Gluu V0.5 is just the beginning."
+        description: "Document your first 10 items for free. As your collection expands, upgrade to Client Plus to unlock advanced tools and greater capacity."
     },
     {
         icon: assets.lightning_icon,
-        title: "Effortless Documentation",
-        description: (
-            <>
-                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Speed up item entry with assisted uploads for faster, easier documentation.
-            </>
-        )
+        title: "AI-Assisted Entry",
+        description: "Let our AI streamline your uploads, dramatically reducing the time and effort required to document each item."
     },
     {
         icon: assets.collection_icon,
-        title: "Organize with Collections",
+        title: "Curate Your Portfolio",
         description: (
             <>
-                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Group your items into custom collections for better management (e.g., 'Watch Collection,' 'Art Pieces').
+                <span className="text-[#5E38BD] font-bold">(Client Plus)</span> Group your assets into custom Collections, giving you powerful control to organize and manage your portfolio with precision.
             </>
         )
     },

@@ -27,9 +27,11 @@ const Home = () => {
                             Get Started Free
                         </button>
                     </Link>
-                    <button className="bg-[#39373D] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
-                        <Link to='/about'>Learn More</Link>
-                    </button>
+                    <Link to='/about'>
+                        <button className="bg-[#39373D] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer">
+                            Learn More
+                        </button>
+                    </Link>
                 </div>
             </Hero>
 
@@ -40,12 +42,14 @@ const Home = () => {
             <Newsletter />
 
             <Promotion
-                title="Ready to Start Your Digital Inventory?"
-                subtitle="Join Gluu today and unlock the first step towards understanding and managing your valuable assets."
+                title="Ready to Start your Gluu Portfolio?"
+                subtitle="Create your Gluu account here to start building your Smart Portfolio. "
             >
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
-                    Get Started Free
-                </button>
+                <Link to='/onboarding-step1'>
+                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 mt-8 shadow-md hover:opacity-90 transition cursor-pointer">
+                        Get Started Free
+                    </button>
+                </Link>
             </Promotion>
         </div>
     )

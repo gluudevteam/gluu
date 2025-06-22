@@ -15,15 +15,23 @@ import Step4 from './pages/Onboarding/Step4'
 import OnboardingAiLoading from './pages/Onboarding/OnboardingAiLoading.jsx'
 import { OnboardingProvider } from './context/OnboardingContext.jsx'
 import { Toaster } from 'react-hot-toast';
+import { SessionContextProvider } from '@supabase/auth-helpers-react'
+import supabase from './helper/SupabaseClient.js'
+import Wallet from './pages/Wallet/Wallet.jsx'
+import Login from './pages/Login/Login.jsx'
+import ItemDetails from './pages/ItemDetails/ItemDetails.jsx'
 
 const HIDE_NAVBAR_ROUTES = [
     '/signup',
+    '/login',
     '/upgrade',
     '/onboarding-step1',
     '/onboarding-step2',
     '/onboarding-step3',
     '/onboarding-step4',
     '/onboarding-ai-loading',
+    '/wallet',
+    '/item-details',
 ]
 
 const HIDE_CHATBOT_ROUTES = [
@@ -36,7 +44,7 @@ const HIDE_CHATBOT_ROUTES = [
 
 const AppContent = () => {
     const location = useLocation();
-    const hideNavbar = HIDE_NAVBAR_ROUTES.includes(location.pathname);
+    const hideNavbar = HIDE_NAVBAR_ROUTES.some(route => location.pathname.startsWith(route));
     const hideChatbot = HIDE_CHATBOT_ROUTES.includes(location.pathname);
     return (
         <>
@@ -55,8 +63,17 @@ const AppContent = () => {
                 <Route path='/onboarding-step4' element={<Step4 />} />
                 <Route path='/onboarding-ai-loading' element={<OnboardingAiLoading />} />
 
+                {/* wallet */}
+                <Route path='/wallet' element={<Wallet />} />
+
+                {/* item details */}
+                <Route path='/item-details/:id' element={<ItemDetails />} />
+
                 {/* signup */}
                 <Route path='/signup' element={<SignUpLanding />} />
+
+                {/* login */}
+                <Route path='/login' element={<Login />} />
 
                 {/* upgrade page */}
                 <Route path='/upgrade' element={<Upgrade />} />
@@ -72,11 +89,13 @@ const AppContent = () => {
 };
 
 const App = () => (
-    <Router>
-        <OnboardingProvider>
-            <AppContent />
-        </OnboardingProvider>
-    </Router>
+    <SessionContextProvider supabaseClient={supabase}>
+        <Router>
+            <OnboardingProvider>
+                <AppContent />
+            </OnboardingProvider>
+        </Router>
+    </SessionContextProvider>
 );
 
 

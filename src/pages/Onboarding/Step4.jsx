@@ -1,14 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TopBar from '../../components/TopBar/TopBar';
 import { assets } from '../../assets/assets';
-// import { useOnboarding } from '../../context/OnboardingContext';
+import { useOnboarding } from '../../context/OnboardingContext';
+import { toast } from 'react-hot-toast';
+import supabase from '../../helper/SupabaseClient';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '@supabase/auth-helpers-react'
 
 const Step4 = () => {
+    const { images, itemDetails, accountDetails, aiInsights } = useOnboarding();
+    const user = useUser();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handleSave = async () => {
+        setLoading(true);
+
+        // prepare images as array of URLs or base64
+        const imageArray = images.map(img => img.src);
+
+        // // prepare AI fields (use context or placeholders)
+        // const {
+        //     brand: ai_brand = 'Dior Tote Handbag',
+        //     material: ai_material = 'Leather',
+        //     conditionScore: ai_condition_score = '6.5',
+        //     approximatePrice: ai_approximate_price = 'Coming Soon on v.1',
+        //     condition: ai_condition = `This leather item appears to be in fair condition. It has undergone standard wear and tear consistent with typical use. The structural integrity remains intact, but signs of age, such as surface wear and possible fading, are visible. No major damage is apparent, and it retains functional and aesthetic value. However, a professional inspection is recommended for any high-value or collectible items to confirm its precise condition and potential need for restoration.`
+        // } = aiInsights || {};
+
+        // use hardcoded values for now
+        const ai_brand = 'Dior Tote Handbag';
+        const ai_material = 'Leather';
+        const ai_condition_score = '6.5';
+        const ai_approximate_price = 'Coming Soon on v.1';
+        const ai_condition = `This leather item appears to be in fair condition. It has undergone standard wear and tear consistent with typical use. The structural integrity remains intact, but signs of age, such as surface wear and possible fading, are visible. No major damage is apparent, and it retains functional and aesthetic value. However, a professional inspection is recommended for any high-value or collectible items to confirm its precise condition and potential need for restoration.`;
+
+        const { brand, type, price, zip } = itemDetails;
+
+        // console.log('Current user ID:', user?.id);
+        console.log('Current user:', user);
+        const { error } = await supabase
+            .from('products')
+            .insert([
+                {
+                    user_id: user ? user.id : null,
+                    brand,
+                    type,
+                    price,
+                    zip,
+                    images: imageArray,
+                    ai_brand,
+                    ai_material,
+                    ai_condition_score,
+                    ai_approximate_price,
+                    ai_condition,
+                }
+            ]);
+
+        setLoading(false);
+
+        if (error) {
+            console.error('Supabase insert error:', error); // Add this line
+            toast.error('Failed to save product. Please try again.');
+            return;
+        }
+
+        toast.success('Product saved!');
+        navigate('/wallet');
+    }
+
     // // Inside Step4 component
     // const { aiInsights } = useOnboarding();
 
     // <input value={aiInsights.brand} readOnly ... />
     // // etc.
+
     return (
         <div className='min-h-screen bg-[#101014] flex flex-col'>
             <div className="relative z-10 flex-grow flex flex-col">
@@ -76,12 +142,24 @@ const Step4 = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-end items-center py-4 px-6 md:px-15">
+                {/* <div className="flex justify-end items-center py-4 px-6 md:px-15">
                     <button
                         // onClick={} // this should redirect the user to their wallet dashboard
                         className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer"
                     >
                         Next
+                    </button>
+                </div> */}
+
+                <div className="flex justify-end items-center py-4 px-6 md:px-15">
+                    <button
+                        onClick={handleSave}
+                        disabled={loading}
+                        className={`bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-normal rounded-lg px-8 py-3 shadow-md transition cursor-pointer
+                        ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'}
+                    `}
+                    >
+                        {loading ? 'Saving...' : 'Next'}
                     </button>
                 </div>
             </div>

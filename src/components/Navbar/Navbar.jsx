@@ -20,9 +20,11 @@ const Navbar = () => {
             </div>
             {/* desktop sign up button */}
             <div className="hidden md:block">
-                <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-normal text-sm px-8 py-3 rounded-lg shadow hover:opacity-90 transition cursor-pointer">
-                    <Link to='/signup'>Sign Up Free</Link>
-                </button>
+                <Link to='/login'>
+                    <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-normal text-sm px-8 py-3 rounded-lg shadow hover:opacity-90 transition cursor-pointer">
+                        Sign Up Free
+                    </button>
+                </Link>
             </div>
             {/* hamburger icon */}
             <button
@@ -45,9 +47,11 @@ const Navbar = () => {
                     <Link to='/how-it-works' className="text-white font-inter font-normal text-base py-2" onClick={() => setMenuOpen(false)}>How It Works</Link>
                     <Link to='/pricing' className="text-white font-inter font-normal text-base py-2" onClick={() => setMenuOpen(false)}>Pricing</Link>
                     <Link to='/about' className="text-white font-inter font-normal text-base py-2" onClick={() => setMenuOpen(false)}>About</Link>
-                    <button className="mt-4 bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-semibold text-base px-8 py-3 rounded-lg shadow hover:opacity-90 transition">
-                        <Link to='/signup' onClick={() => setMenuOpen(false)}>Sign Up Free</Link>
-                    </button>
+                    <Link to='/onboarding-step1' onClick={() => setMenuOpen(false)}>
+                        <button className="mt-4 bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-semibold text-base px-8 py-3 rounded-lg shadow hover:opacity-90 transition">
+                            Sign Up Free
+                        </button>
+                    </Link>
                 </div>
             )}
         </nav>
