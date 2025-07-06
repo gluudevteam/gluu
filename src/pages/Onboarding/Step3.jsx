@@ -17,8 +17,46 @@ const Step3 = () => {
         });
     };
 
+    // const handleNext = async () => {
+    //     const { firstName, lastName, phone, email, password } = accountDetails;
+    //     if (
+    //         !firstName.trim() ||
+    //         !lastName.trim() ||
+    //         !phone.trim() ||
+    //         !email.trim() ||
+    //         !password.trim()
+    //     ) {
+    //         toast.error("Please fill out all fields to continue.");
+    //         return;
+    //     }
+
+    //     // sign up with supabase auth
+    //     const { error } = await supabase.auth.signUp({
+    //         email,
+    //         password,
+    //         options: {
+    //             data: {
+    //                 first_name: firstName,
+    //                 last_name: lastName,
+    //                 phone: phone,
+    //             }
+    //         }
+    //     })
+
+    //     if (error) {
+    //         toast.error(error.message || "Sign up failed.");
+    //         return;
+    //     }
+
+    //     toast.success("Account created! Please check your email to confirm.")
+
+    //     navigate('/onboarding-ai-loading');
+    // };
+
+    // updated handleNext function
     const handleNext = async () => {
         const { firstName, lastName, phone, email, password } = accountDetails;
+
         if (
             !firstName.trim() ||
             !lastName.trim() ||
@@ -30,8 +68,11 @@ const Step3 = () => {
             return;
         }
 
-        // sign up with supabase auth
-        const { error } = await supabase.auth.signUp({
+        // Step 1: Sign up with Supabase Auth
+        const {
+            data: { user },
+            error: signUpError
+        } = await supabase.auth.signUp({
             email,
             password,
             options: {
@@ -39,17 +80,35 @@ const Step3 = () => {
                     first_name: firstName,
                     last_name: lastName,
                     phone: phone,
-                }
-            }
-        })
+                },
+            },
+        });
 
-        if (error) {
-            toast.error(error.message || "Sign up failed.");
+        if (signUpError) {
+            toast.error(signUpError.message || "Sign up failed.");
             return;
         }
 
-        toast.success("Account created! Please check your email to confirm.")
+        // Step 2: Insert user metadata into 'users' table
+        const { error: insertError } = await supabase.from('users').insert([
+            {
+                id: user.id,
+                email,
+                first_name: firstName,
+                last_name: lastName,
+                phone,
+                plan: 'free',
+                upload_limit: 10,
+            },
+        ]);
 
+        if (insertError) {
+            console.error('Insert into users table failed:', insertError);
+            toast.error("Account created, but failed to store user metadata.");
+            return;
+        }
+
+        toast.success("Account created! Please check your email to confirm.");
         navigate('/onboarding-ai-loading');
     };
 

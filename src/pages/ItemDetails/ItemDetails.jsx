@@ -132,16 +132,16 @@ const ItemDetails = () => {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 <div>
                                     <div className="text-[#B0B0B0] text-xs mb-1">Material</div>
-                                    <div className="text-white text-base">{item.material || 'N/A'}</div>
+                                    <div className="text-white text-base">{item.ai_material || 'N/A'}</div>
                                 </div>
                                 <div>
                                     <div className="text-[#B0B0B0] text-xs mb-1">Condition Score</div>
-                                    <div className="text-white text-base">{item.condition_score || 'N/A'}</div>
+                                    <div className="text-white text-base">{item.ai_condition_score || 'N/A'}</div>
                                 </div>
                                 <div>
                                     <div className="text-[#B0B0B0] text-xs mb-1">Approximate Price</div>
                                     <div className="text-white text-base">
-                                        {item.ai_approximate_price ? `$${item.ai_approximate_price}` : 'Coming Soon'}
+                                        {item.ai_approximate_price ? `${item.ai_approximate_price}` : 'Coming Soon'}
                                     </div>
                                 </div>
                                 <div>

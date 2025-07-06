@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="hidden md:block">
                 <Link to='/login'>
                     <button className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-normal text-sm px-8 py-3 rounded-lg shadow hover:opacity-90 transition cursor-pointer">
-                        Sign Up Free
+                        Login
                     </button>
                 </Link>
             </div>
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <Link to='/about' className="text-white font-inter font-normal text-base py-2" onClick={() => setMenuOpen(false)}>About</Link>
                     <Link to='/onboarding-step1' onClick={() => setMenuOpen(false)}>
                         <button className="mt-4 bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white font-inter font-semibold text-base px-8 py-3 rounded-lg shadow hover:opacity-90 transition">
-                            Sign Up Free
+                            Login
                         </button>
                     </Link>
                 </div>

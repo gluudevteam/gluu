@@ -38,11 +38,19 @@ const Pricing = () => {
     const [showModal, setShowModal] = useState(false)
     const navigate = useNavigate()
 
+    // const handleButtonClick = (plan) => {
+    //     if (plan.title === 'Client Plus') {
+    //         setShowModal(true)
+    //     }
+    // }
+
     const handleButtonClick = (plan) => {
         if (plan.title === 'Client Plus') {
-            setShowModal(true)
+            setShowModal(true);
+        } else if (plan.title === 'Client') {
+            navigate('/onboarding-step1');
         }
-    }
+    };
 
     const handleModalConfirm = () => {
         setShowModal(false)
@@ -51,6 +59,17 @@ const Pricing = () => {
 
     return (
         <div className="min-h-screen bg-[#101014]">
+            {/* <Hero
+                title={
+                    <>
+                        Flexible plans to value your <br />
+                        Real World Assets
+                    </>
+                }
+                subtitle="Start for free, document up to 10 items, and unlock advanced AI features with Client Plus. Choose the plan that fits your collection."
+                backgroundImage={assets.hero_background}
+            /> */}
+
             <Hero
                 title={
                     <>
@@ -60,10 +79,26 @@ const Pricing = () => {
                 }
                 subtitle="Start for free, document up to 10 items, and unlock advanced AI features with Client Plus. Choose the plan that fits your collection."
                 backgroundImage={assets.hero_background}
-            />
+            >
+                <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 lg:gap-x-12 justify-center items-center lg:items-start px-2 md:px-8 pt-16 pb-12">
+                    {plans.map((plan, idx) => (
+                        <div
+                            key={plan.title}
+                            className="w-full max-w-[340px]"
+                        >
+                            <PricingPlan
+                                {...plan}
+                                highlighted={selected === idx}
+                                onClick={() => setSelected(idx)}
+                                onButtonClick={() => handleButtonClick(plan)}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </Hero>
 
             {/* pricing plans */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center -mt-30 relative z-10">
+            {/* <div className="flex flex-col md:flex-row gap-6 justify-center -mt-30 relative z-10">
                 {plans.map((plan, idx) => (
                     <PricingPlan
                         key={plan.title}
@@ -73,7 +108,22 @@ const Pricing = () => {
                         onButtonClick={() => handleButtonClick(plan)}
                     />
                 ))}
-            </div>
+            </div> */}
+            {/* <div className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:gap-x-12 justify-center items-center md:items-start px-2 md:px-0 pt-8 pb-12">
+                {plans.map((plan, idx) => (
+                    <div
+                        key={plan.title}
+                        className="w-full max-w-[340px]"
+                    >
+                        <PricingPlan
+                            {...plan}
+                            highlighted={selected === idx}
+                            onClick={() => setSelected(idx)}
+                            onButtonClick={() => handleButtonClick(plan)}
+                        />
+                    </div>
+                ))}
+            </div> */}
 
             <Modal
                 open={showModal}

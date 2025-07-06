@@ -14,12 +14,16 @@ import Step3 from './pages/Onboarding/Step3'
 import Step4 from './pages/Onboarding/Step4'
 import OnboardingAiLoading from './pages/Onboarding/OnboardingAiLoading.jsx'
 import { OnboardingProvider } from './context/OnboardingContext.jsx'
+import { NewItemProvider } from './context/NewItemContext.jsx'
 import { Toaster } from 'react-hot-toast';
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import supabase from './helper/SupabaseClient.js'
 import Wallet from './pages/Wallet/Wallet.jsx'
 import Login from './pages/Login/Login.jsx'
 import ItemDetails from './pages/ItemDetails/ItemDetails.jsx'
+import AddNewItem from './pages/AddNewItem/AddNewItem.jsx'
+import AiLoading from './pages/AiLoading/AiLoading.jsx'
+import AiInsights from './pages/AiInsights/AiInsights.jsx'
 
 const HIDE_NAVBAR_ROUTES = [
     '/signup',
@@ -32,6 +36,8 @@ const HIDE_NAVBAR_ROUTES = [
     '/onboarding-ai-loading',
     '/wallet',
     '/item-details',
+    '/add-new-item',
+    '/ai-loading',
 ]
 
 const HIDE_CHATBOT_ROUTES = [
@@ -65,6 +71,23 @@ const AppContent = () => {
 
                 {/* wallet */}
                 <Route path='/wallet' element={<Wallet />} />
+
+                {/* add new item */}
+                <Route path='/add-new-item' element={
+                    <NewItemProvider>
+                        <AddNewItem />
+                    </NewItemProvider>
+                } />
+                <Route path='/ai-loading' element={
+                    <NewItemProvider>
+                        <AiLoading />
+                    </NewItemProvider>
+                } />
+                <Route path='/ai-insights' element={
+                    <NewItemProvider>
+                        <AiInsights />
+                    </NewItemProvider>
+                } />
 
                 {/* item details */}
                 <Route path='/item-details/:id' element={<ItemDetails />} />

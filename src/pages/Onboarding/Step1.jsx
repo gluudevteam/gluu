@@ -50,7 +50,7 @@ const Step1 = () => {
                     </div>
 
                     <div className="w-full max-w-[1000px] flex flex-col items-center">
-                        <div className="w-full h-[400px] border-2 border-dashed border-gray-600 rounded-xl p-6 flex flex-col items-center justify-center bg-gray-900/40">
+                        <div className="w-full h-[320px] border-2 border-dashed border-gray-600 rounded-xl p-6 flex flex-col items-center justify-center bg-gray-900/40">
                             <img src={assets.camera_icon} alt="Camera" className="mb-4" />
                             <button
                                 onClick={handleButtonClick}
@@ -68,7 +68,7 @@ const Step1 = () => {
                             />
                         </div>
 
-                        {images.length > 0 && (
+                        {/* {images.length > 0 && (
                             <div className="mt-6 w-full grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {images.map(image => (
                                     <div
@@ -86,6 +86,31 @@ const Step1 = () => {
                                             title="Remove image"
                                         >
                                             ×
+                                        </button>
+                                    </div>
+                                ))}
+
+                            </div>
+                        )} */}
+
+                        {images.length > 0 && (
+                            <div className="mt-6 w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+                                {images.map(image => (
+                                    <div
+                                        key={image.id}
+                                        className="relative border border-gray-700 rounded-lg overflow-hidden shadow-lg h-28 w-40"
+                                    >
+                                        <img
+                                            src={image.src}
+                                            alt="Preview"
+                                            className="w-full h-full object-cover"
+                                        />
+                                        <button
+                                            onClick={() => handleRemove(image.id)}
+                                            className="absolute top-1 right-1 z-20 bg-black/60 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition cursor-pointer"
+                                            title="Remove image"
+                                        >
+                                            &times;
                                         </button>
                                     </div>
                                 ))}

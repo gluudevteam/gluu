@@ -24,7 +24,7 @@ const HowItWorks = () => {
                 </div>
             </Hero>
 
-            <OnboardingInstructions />
+            {/* <OnboardingInstructions /> */}
 
             {/* <Step1Instructions />
 
