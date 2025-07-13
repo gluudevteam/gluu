@@ -1,11 +1,37 @@
 import React, { useState } from 'react'
+import supabase from '../../helper/SupabaseClient'
+import { toast } from 'react-hot-toast'
 
 const Newsletter = () => {
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setEmail('');
+        // subscribe to gluu logic
+        setLoading(true)
+
+        try {
+            const normalizedEmail = email.trim().toLowerCase()
+
+            const { error } = await supabase
+                .from('subscribers')
+                .insert({ email: normalizedEmail })
+
+            if (error) {
+                if (error.code === '23505') {
+                    toast.error('You are already subscribed.')
+                } else {
+                    toast.error('There was an error subscribing. Please try again.')
+                    console.error(error)
+                }
+            } else {
+                toast.success('Thanks for subscribing!')
+                setEmail('')
+            }
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -27,9 +53,11 @@ const Newsletter = () => {
                 />
                 <button
                     type="submit"
+                    disabled={loading}
                     className="bg-gradient-to-r from-[#A25EFF] via-[#5E38BD] to-[#5E38BD] text-white rounded-lg px-8 py-3 shadow-md hover:opacity-90 transition cursor-pointer"
                 >
-                    Subscribe Now
+                    {/* Subscribe Now */}
+                    {loading ? 'Subscribing...' : 'Subscribe Now'}
                 </button>
             </form>
         </section>
