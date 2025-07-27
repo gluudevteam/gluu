@@ -172,7 +172,7 @@ Make sure you have the following installed on your machine:
 7. **Open your browser**
    Navigate to `http://localhost:5173` to see the application running.
 
-## 👤 User Onboarding Flow
+## User Onboarding Flow
 
 ### New User Journey
 
@@ -227,7 +227,7 @@ Make sure you have the following installed on your machine:
    - Direct access to inventory
    - Recent items and activity
 
-## 🎯 Main Features
+## Main Features
 
 - **AI-Powered Item Identification**: Automatically identify items from images
 - **Value Estimation**: Get approximate value suggestions for your possessions
@@ -240,7 +240,7 @@ Make sure you have the following installed on your machine:
 - **Secure Authentication**: Powered by Supabase Auth
 - **Webhook Integration**: Real-time payment status updates
 
-## 💻 Development Guidelines
+## Development Guidelines
 
 ### Code Style
 
@@ -271,7 +271,7 @@ Make sure you have the following installed on your machine:
 - Context: PascalCase with Context suffix (`OnboardingContext.jsx`)
 - Utilities: camelCase (`SupabaseClient.js`)
 
-## 📜 Available Scripts
+## Available Scripts
 
 ### Frontend Scripts
 - `npm run dev` - Start frontend development server on port 5173
@@ -283,7 +283,7 @@ Make sure you have the following installed on your machine:
 - `cd server && node index.js` - Start Express server on port 4242
 - `cd server && npm test` - Run backend tests (if configured)
 
-## 🔧 Environment Variables
+## Environment Variables
 
 ### Frontend Environment Variables
 Create a `.env` file in the root directory:
@@ -309,9 +309,7 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
-⚠️ **Security Note**: Never commit actual API keys to version control. Use `.env.example` files for templates.
-
-## 🏗️ Architecture Notes
+## Architecture Notes
 
 ### Full-Stack Architecture
 
@@ -358,7 +356,7 @@ The backend expects a `users` table in Supabase with:
 - `upload_limit` (integer) - updated to 200 for premium users
 - `stripe_customer_id` (text) - stores Stripe customer ID
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Workflow
 
@@ -387,7 +385,7 @@ The backend expects a `users` table in Supabase with:
 - Ensure Supabase integration works properly
 - Test Stripe payment flow in development mode
 
-## 🐛 Common Issues & Solutions
+## Common Issues & Solutions
 
 ### Server Connection Issues
 ```bash
@@ -441,14 +439,14 @@ npm run dev -- --port 3000
 - Check that Tailwind CSS 4.1.8 is properly configured
 - Ensure @tailwindcss/vite plugin is working
 
-## 📞 Support
+## Support
 
 For questions, issues, or contributions:
 
 - **GitHub Issues**: [Create an issue](https://github.com/gluudevteam/gluu/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/gluudevteam/gluu/discussions)
 
-## 🚀 Deployment
+## Deployment
 
 ### Frontend Deployment
 The frontend is configured for Vercel deployment with `vercel.json`:
@@ -476,27 +474,6 @@ The Express server can be deployed to platforms like:
 3. Subscribe to `checkout.session.completed` events
 4. Update `STRIPE_WEBHOOK_SECRET` in production environment
 
-## 📄 License
-
-[Add your license information]
-
----
-
-**Ready to digitize your valuable possessions? Start with Gluu! 📦✨**
+** Ready to digitize your valuable possessions? Start with Gluu! **
 
 *Last updated: July 27, 2025*
-
-
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
